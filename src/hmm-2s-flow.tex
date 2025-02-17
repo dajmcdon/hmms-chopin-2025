@@ -1,0 +1,65 @@
+\documentclass[crop,tikz,convert=pdf2svg]{standalone}
+% \usetikzlibrary{...}% tikz package already loaded by 'tikz' option
+\definecolor{lgreen}{HTML}{00AF64}
+\definecolor{dblue}{HTML}{084b7f}
+\definecolor{ddblue}{HTML}{053b64}
+\definecolor{lred}{HTML}{FF9B73}
+\definecolor{nred}{HTML}{FF4900}
+\definecolor{dred}{HTML}{C63800}
+\definecolor{norange}{HTML}{FF9200}
+\definecolor{dorange}{HTML}{C67100}
+\definecolor{nyellow}{RGB}{255,221,0}
+\definecolor{ngreen}{HTML}{00AF64}
+\definecolor{dgreen}{HTML}{00884e}
+\definecolor{nblue}{HTML}{0B61A4}
+\definecolor{jblue}{HTML}{0B61A4}
+\usetikzlibrary{fit,arrows.meta,automata}					
+\usetikzlibrary{backgrounds}
+
+
+\begin{document}
+\tikzstyle{state}=[circle, line width=2pt,minimum size=1.25cm, draw=nblue]
+\tikzstyle{measurement}=[circle,thick,minimum size=1.25cm,draw=norange,fill=norange]
+\tikzstyle{switch}=[rectangle,line width=2pt, minimum size=1cm, draw=nblue]
+\begin{tikzpicture}[text height=1.5ex,text depth=0.25ex,ampersand replacement=\&]
+  % "text height" and "text depth" are required to vertically
+  % align the labels with and without indices.
+  
+  % The various elements are conveniently placed using a matrix:
+  \matrix[row sep=1cm,column sep=1cm] {
+    % First line: Switch state
+    \node (s_k-2)  {$\cdots$}; \& \node (s_k-1)
+    [switch]{$s_{k-1}$}; \& \node (s_k)   [switch]{$s_k$};
+    \& \node (s_k+1) [switch]{$s_{k+1}$}; \& \node (s_k+2)
+    {$\cdots$}; \\
+    % Third line: Measurement
+    \node (y_k-2) {$\cdots$}; \&        
+    \node (y_k-1) [measurement] {$\mathbf{y}_{k-1}$}; \&
+    \node (y_k)   [measurement] {$\mathbf{y}_k$};     \&
+    \node (y_k+1) [measurement] {$\mathbf{y}_{k+1}$}; \&
+    \node (y_k+2) {$\cdots$};\\
+  };
+  % The diagram elements are now connected through arrows:
+  \path[>=Stealth, scale=10, line width=2pt,->]
+  (s_k-2) edge (s_k-1)
+  (s_k-2) edge [bend left] (s_k)
+  (s_k-1) edge (s_k)
+  (s_k-1) edge [bend left] (s_k+1)	
+  (s_k)   edge (s_k+1)
+  (s_k)   edge [bend left] (s_k+2)	
+  (s_k+1)   edge (s_k+2)	
+  
+  
+  (s_k-1) edge (y_k-1)
+  (s_k) edge (y_k)
+  (s_k+1)   edge (y_k+1)
+  
+  (s_k-1) edge (y_k)
+  (s_k) edge (y_k+1)
+  (s_k+1)   edge (y_k+2);
+  
+  % (s_k-1) edge[bend left=40] (y_k-1)
+  % (s_k) edge[bend left=40] (y_k)
+  % (s_k+1)   edge[bend left=40] (y_k+1);
+\end{tikzpicture}
+\end{document}

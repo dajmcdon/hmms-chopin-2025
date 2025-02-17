@@ -1,0 +1,58 @@
+\documentclass[crop,tikz,convert=pdf2svg]{standalone}
+% \usetikzlibrary{...}% tikz package already loaded by 'tikz' option
+\definecolor{lgreen}{HTML}{00AF64}
+\definecolor{dblue}{HTML}{084b7f}
+\definecolor{ddblue}{HTML}{053b64}
+\definecolor{lred}{HTML}{FF9B73}
+\definecolor{nred}{HTML}{FF4900}
+\definecolor{dred}{HTML}{C63800}
+\definecolor{norange}{HTML}{FF9200}
+\definecolor{dorange}{HTML}{C67100}
+\definecolor{nyellow}{RGB}{255,221,0}
+\definecolor{ngreen}{HTML}{00AF64}
+\definecolor{dgreen}{HTML}{00884e}
+\definecolor{nblue}{HTML}{0B61A4}
+\definecolor{jblue}{HTML}{0B61A4}
+\usetikzlibrary{fit,arrows.meta,automata}					
+\usetikzlibrary{backgrounds}
+\definecolor{cc1}{HTML}{5E3C99}
+\definecolor{cc2}{HTML}{B2ABD2}
+\definecolor{cc3}{HTML}{FDB863}
+\definecolor{cc4}{HTML}{E66101}
+
+
+
+\begin{document}
+\tikzstyle{state}=[circle, line width=2pt,minimum size=1.25cm, draw=nblue]
+\tikzstyle{measurement}=[circle,thick,minimum size=1.25cm,draw=norange,fill=norange]
+\tikzstyle{switch}=[rectangle,line width=2pt, minimum size=1cm, draw=nblue]
+ \begin{tikzpicture}[>=latex,text height=1.5ex,text depth=0.25ex]
+   \matrix[row sep=0.25cm,column sep=.5cm] {
+     
+      \node (S4) [switch] {\Large{\textcolor{cc4}{\bfseries 4}}}; &&&&& &
+      \node (S22) [switch] {\Large{\textcolor{cc2}{\bfseries 2}}};\\
+      &\node (S1) [switch] {\Large{\textcolor{cc1}{\bfseries 1}}}; &&&& \node
+      (S2) [switch] {\Large{\textcolor{cc2}{\bfseries 2}}}; \\
+      \\ \\ \\ \\ \\ \\
+      &\node (S3) [switch] {\Large{\textcolor{cc3}{\bfseries 3}}};\\
+      \node (S33) [switch] {\Large{\textcolor{cc3}{\bfseries 3}}};\\
+      }
+    ;
+    \path[->]
+    (S1) edge [bend left]  (S4)
+    (S4) edge [bend left] (S1)
+    (S1) edge [bend left] (S22)
+    (S22) edge (S2)
+    (S2) edge [bend left] (S33)
+    (S1) edge [bend right] (S33)
+    (S33) edge (S3)
+    (S3) edge [bend right] (S22)
+    (S3) edge [loop left](S3)
+    (S2) edge [loop above] (S2)
+    (S3) edge (S1)
+    (S2) edge (S1);
+    \path[->] (S1) edge [out=300,in=330,looseness=8] (S1);
+  \end{tikzpicture}
+ 
+
+\end{document}
