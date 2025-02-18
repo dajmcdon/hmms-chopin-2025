@@ -32,19 +32,19 @@ tempos |>
   select(-meas_num, -beat) |>
   pivot_longer(-note_onset) |>
   ggplot() +
-  # annotate("rect",
-  #   xmin = 33, xmax = 45, ymin = -Inf, ymax = Inf,
-  #   fill = lighten_colour(primary, .8)
-  # ) +
-  geom_line(aes(y = value, x = note_onset, color = name)) +
+  geom_line(
+    aes(note_onset, value, color = as.numeric(as.factor(name)), group = name)
+  ) +
   coord_cartesian(xlim = c(2, 44)) +
   scale_x_continuous(expand = expansion()) +
   scale_y_continuous(expand = expansion()) +
   theme_void() +
-  scale_colour_manual(values = rep(cols, length.out = ncol(tempos) - 3)) +
-  # scale_color_brewer(palette = "Blues") +
+  #scale_colour_manual(values = rep(cols, length.out = ncol(tempos) - 3)) +
+  scale_color_distiller(palette = "Set1", direction = 1) +
   theme(legend.position = "none")
 ```
+
+
 
 
 
@@ -54,17 +54,26 @@ tempos |>
 
 <br>
 
+
+::: flex
+
+::: w-40
+
 #### Daniel J. McDonald
 
 <br>
 
 HMM Symposium
 
-[20 February 2025]{.tertiary}
+20 February 2025
 
-<https://dajmcdon.github.io/hmms-chopin-2025/>
+:::
 
-```{r qrcodes, include=FALSE, fig.width=6, fig.height=2, dev="png"}
+::: w-60
+
+```{r qrcodes, fig.width=8, fig.height=4, dev="png"}
+#| fig-align: right
+#| fig-valign: center
 qrdat <- function(text, ecl = c("L", "M", "Q", "H")) {
   x <- qrcode::qr_code(text, ecl)
   n <- nrow(x)
@@ -75,7 +84,7 @@ qrdat <- function(text, ecl = c("L", "M", "Q", "H")) {
 }
 
 allqr <- bind_rows(
-  slides = qrdat("https://dajmcdon.github.io/ubcsfu-chopin-2024/"),
+  slides = qrdat("https://dajmcdon.github.io/hmms-chopin-2025/"),
   paper = qrdat("http://dx.doi.org/10.1214/21-AOAS1457"), 
   `my www` = qrdat("https://dajmcdon.github.io", "Q"), .id = "site")
 
@@ -87,9 +96,14 @@ ggplot(allqr, aes(x, y, fill = z)) +
   facet_wrap(~ site, nrow = 1) +
   theme(
     text = element_text(
-      color = tertiary, size = 18,
+      color = primary, size = 36,
       margin = margin(3,0,3,0)),
     panel.background = element_blank(),
     plot.background = element_blank())
 ```
 
+
+:::
+:::
+
+<https://dajmcdon.github.io/hmms-chopin-2025/>

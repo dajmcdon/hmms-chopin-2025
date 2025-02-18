@@ -10,6 +10,9 @@ format:
 
 {{< include _titleslide.qmd >}}
 
+
+## {background-image="gfx/LoveLost-VPO.png" background-size="contain"}
+
 ## {background-image="gfx/State-cello-0299.jpg" background-size="contain"}
 
 ## {background-image="gfx/jacobs.jpg" background-size="contain"}
@@ -21,17 +24,9 @@ format:
 * IU happened to have an opening
 * Met Prof. Chris Raphael at my interview
 * Accepted the Job
-
-:::
-
-## {background-image="https://img.freepik.com/free-vector/musical-pentagram-sound-waves-notes-background_1017-33911.jpg?w=1800&t=st=1666393969~exp=1666394569~hmac=2bd5438306b82462af3c31fb52c733010cd2f8ff069fcba5324d16a25638af2f" background-size=contain}
-
-::: notes
-
 * Occasionally dabbled in Music on the Side
 * First invited talk at Laval on Music
 * Finally published the paper in 2021
-
 :::
 
 
@@ -186,6 +181,10 @@ lt <- diff(c(tempos$note.onset,61))
 fivecolors = c('#7b3294','#c2a5cf','#a6dba0','#008837','#e7d4e8')
 ```
 
+```{r build-plots, include=FALSE, cache=TRUE}
+source("src/build-all-plots.R")
+```
+
 
 ## Musical tempo
 
@@ -285,7 +284,8 @@ Loudness of the note
 
 ```{r all-performance-lines}
 #| cache: true
-source("src/build-all-plots.R")
+#| fig-width: 7
+#| fig-height: 3.5
 tempos %>%
   select(-meas_num, -beat) %>%
   pivot_longer(-note_onset) %>%
