@@ -1026,7 +1026,7 @@ ggplot(similar) +
   scale_x_continuous(expand = expansion()) +
   scale_color_brewer(palette = "PuOr", direction = -1, drop = FALSE, name = "") +
   scale_shape_manual(values = perfshapes, name = "") +
-  theme(legend.position = "right", strip.text = element_text(hjust = 0)) +
+  theme(legend.position = "bottom", strip.text = element_text(hjust = 0)) +
   labs(x = "Measure", y = "Tempo") +
   facet_wrap(~cl, nrow = 2)
 ```
@@ -1055,7 +1055,7 @@ ggplot(similar) +
   scale_x_continuous(expand = expansion()) +
   scale_color_brewer(palette = "PuOr", direction = -1, drop = FALSE, name = "") +
   scale_shape_manual(values = perfshapes, name = "") +
-  theme(legend.position = "right", strip.text = element_text(hjust = 0)) +
+  theme(legend.position = "bottom", strip.text = element_text(hjust = 0)) +
   labs(x = "Measure", y = "Tempo") +
   facet_wrap(~cl, nrow = 2)
 ```
