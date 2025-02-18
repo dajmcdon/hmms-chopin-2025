@@ -755,7 +755,7 @@ For each performance:
 :::
 
 ::: notes
-* Takes a few minutes per performance when 4 is done intelligently
+* Takes a few minutes per performance when 1 is done intelligently
 * I used 6hr walltime on Cedar with 1 perf / core and 10 restarts
 :::
 
