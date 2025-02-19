@@ -1,89 +1,114 @@
 /*-- scss:defaults --*/
 
 // import google fonts
+@import url('https://fonts.googleapis.com/css2?family=Gilda+Display&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
 
+$light-colors: (
+  "ubclblue": #6495ed,
+  "orange": #FFa319,
+  "brown": #a15e49,
+  "teal": lighten(#17bebb, 20%),
+  "green": #06D6a0,
+  "pink": #FBCAEF
+);
 
-// @import url("https://fonts.googleapis.com/css2?family=EB+Garamond");
-// @import url("https://fonts.googleapis.com/css2?family=Commissioner");
+$dark-colors: (
+  "ubcblue": #002145,
+  "claret": #a41623
+);
 
-$primary: #002145;
-$secondary: #6495ed;
-$tertiary: #ffa319;
-$fourth-colour: #DB0B5B;
-// $font-family-sans-serif:  "Commissioner", "Source Sans Pro", Helvetica, sans-serif, !default;
+$colors: map-merge($light-colors, $dark-colors);
+
+@function theme-color($color) {
+  @return map-get($colors, $color);
+}
+
+$primary: theme-color("ubcblue");
+$secondary: theme-color("ubclblue");
+$tertiary: theme-color("orange");
+$font-family-sans-serif: 'Red Hat Display', sans-serif;
+$presentation-heading-font: 'Gilda Display', serif;
 // $presentation-font-size-root: 40px;
-$body-bg: #fefefe;
-$presentation-heading-color: $primary;
+$body-bg: #f3f3f3;
+$presentation-heading-color: lighten($primary, 10%);
 $presentation-font-size-root: 36px;
 
-$link-color: $primary;
-$code-block-font-size: 0.75em;
-// $code-block-bg: #eee;
-// $code-block-border-color: $primary;
+$link-color: lighten($primary, 10%);
+
 
 /*-- scss:rules --*/
+
+
+@each $name, $color in $colors {
+  .reveal .slides section .fragment.hl-#{$name} {
+    opacity: unset;
+    visibility: unset;
+
+    &.visible {
+      background-color: lighten($color, 10%);
+    }
+
+    &.current-fragment {
+      background-color: $color;
+    }
+  }
+  .#{$name} {
+    color: $color;
+  }
+}
+
+@each $name, $color in $dark-colors {
+  .reveal .slides section .fragment.hl-#{$name} {
+    &.visible { color: $body-bg; }
+    &.current-fragment { color: $body-bg; }
+  }
+}
+
 
 .primary {color: $primary;}
 .secondary {color: $secondary;}
 .tertiary {color: $tertiary;}
-.fourth-colour {color: $fourth-colour;}
+
+
+.inverse {
+  color: $body-bg;
+  .slide-background-content {
+    background-color: $primary;
+  }
+  h1, h2, h3 {
+    color: $body-bg;
+  }
+
+  a {
+    color: $body-bg;
+  }
+}
+
+.box-text {
+  font-size: 1.2em;
+  background-color: $body-bg;
+  border: 5px;
+  border-style: solid;
+  border-color: theme-color("claret");
+  padding: 3em;
+}
+
+.reveal .slide-menu-button .fa-bars::before {
+  background-image: url('../../../../../gfx/Tenor_clef.svg') !important;
+}
 
 
 ul {
  	list-style: none; /* Remove default bullets */
 }
 
-ol li::marker {color: $primary;}
+ol li::marker {color: lighten($primary, 10%);}
 
 ul li::marker {
-	color: $primary;
+	color: lighten($primary, 10%);
 }
 
 dt {
-  color: $primary;
+  color: lighten($primary, 10%);
 }
 
-/* Make callout blocks a bit larger */
-.reveal .callout.callout-style-simple .callout-body,
-.reveal .callout.callout-style-default .callout-body {
-  font-size: 1.5em;
-}
-.reveal .callout.callout-style-simple div.callout-title,
-.reveal .callout.callout-style-default div.callout-title {
-  font-size: 1.2em;
-}
-
-.reveal .callout.callout-style-default .callout-icon::before,
-.reveal .callout.callout-style-simple .callout-icon::before {
-  height: 2.5rem;
-  width: 2.5rem;
-  background-size: 2.5rem 2.5rem;
-}
-
-.reveal .callout.callout-titled .callout-icon::before {
-  margin-top: 1.75rem;
-}
-
-.reveal .cell-output pre code {
-  padding-top: 12px;
-  max-height: 700px;
-}
-
-.reveal pre.sourceCode code {
-  max-height: 750px;
-}
-
-/*
-.reveal pre {
-  border-left-style: solid;
-  background-color: $body-color;
-  // border-color: $code-block-border-color;
-}
-.reveal pre code {
-  border-left-style: solid;
-  // border-color: $code-block-border-color;
-  // background-color: $code-block-bg;
-  color: $body-color;
-}
-
-*/

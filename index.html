@@ -29,7 +29,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-319301c0393bd92b907267d334af6dc1.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-74eac0017be0b4d4eb0218c14096ae20.css">
   <link rel="stylesheet" href="styling/tachyons-minimal.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -133,37 +133,26 @@
     <div class="slides">
 
 
-<section id="section" class="slide level2 f1" data-background-image="gfx/cover-art-1.svg" data-background-opacity="0.4">
-<h2>Markov-Switching Models for Musical Interpretation</h2>
+<section id="section" class="slide level2" data-background-image="gfx/cover-art-1.svg">
+<h2></h2>
+<div style="text-align:center; font-family:Gilda Display; font-size:1.8em; padding: 1em 0.5em 0em; background-color: rgba(255, 255, 255, .5); backdrop-filter: blur(5px); box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .5);">
+<p><span class="primary">Markov-Switching Models for Musical Interpretation</span></p>
 <p><br></p>
-<div class="flex">
-<section id="daniel-j.-mcdonald" class="w-40">
-<h4>Daniel J. McDonald</h4>
-<p><br></p>
-<p>HMM Symposium</p>
-<p>20 February 2025</p>
-</section>
-<div class="w-60">
-<div class="cell" data-layout-align="right" data-fig-valign="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-right">
+<p><span class="primary">Daniel J. McDonald</span></p>
+<div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="gfx/qrcodes-1.png" class="quarto-figure quarto-figure-right"></p>
+<p><img data-src="gfx/qrcodes-1.png" class="quarto-figure quarto-figure-center" height="300"></p>
 </figure>
 </div>
 </div>
-</div>
-</div>
-</div>
-<p><a href="https://dajmcdon.github.io/hmms-chopin-2025/" class="uri">https://dajmcdon.github.io/hmms-chopin-2025/</a></p>
 </section>
-<section id="section-1" class="slide level2" data-background-image="gfx/LoveLost-VPO.png" data-background-size="contain">
+<section id="section-1" class="slide level2" data-background-color="#002145" data-background-image="gfx/LoveLost-VPO.png" data-background-size="contain">
 <h2></h2>
 </section>
-<section id="section-2" class="slide level2" data-background-image="gfx/State-cello-0299.jpg" data-background-size="contain">
+<section id="section-2" class="slide level2" data-background-color="#002145" data-background-image="gfx/State-cello-0299.jpg" data-background-size="contain" data-visibility="uncounted">
 <h2></h2>
 </section>
-<section id="section-3" class="slide level2" data-background-image="gfx/jacobs.jpg" data-background-size="contain">
+<section id="section-3" class="slide level2" data-background-color="#002145" data-background-image="gfx/jacobs.jpg" data-background-size="contain" data-visibility="uncounted">
 <h2></h2>
 <aside class="notes">
 <ul>
@@ -207,12 +196,12 @@
 </iframe>
 </div>
 </div>
-<div class="fragment">
 <ul>
-<li><p>Harder to describe a <span class="tertiary">performance</span></p></li>
-<li><p>Classical music is mainly about performances of the <span class="tertiary">same</span> music</p></li>
-<li><p>How do we think about which ones we like?</p></li>
+<li><p>Harder to describe a <span class="fragment hl-orange">performance</span></p></li>
+<li><p>Classical music is mainly about <span class="fragment hl-orange">performances of the same music</span></p></li>
 </ul>
+<div class="fragment">
+<p><span class="claret">How do we think about which ones we like?</span></p>
 </div>
 </section>
 <section id="primer-on-classical-music" class="slide level2">
@@ -221,17 +210,15 @@
 <li>Written between 6th century and today</li>
 <li>Includes music written during the Classical period (1750–1820)</li>
 </ul>
-<div class="callout callout-warning no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<p>The real difference is that when a composer writes a piece of what’s usually called classical music, he puts down the exact notes that he wants, the exact instruments or voices that he wants to play or sing those notes—even the exact number of instruments or voices; and he also writes down as many directions as he can think of.</p>
+<blockquote>
+<p>The real difference is that when a composer writes a piece of what’s usually called classical music, he puts down <span class="fragment hl-claret">the exact notes that he wants</span>, the exact instruments or voices that he wants to play or sing those notes—even the exact number of instruments or voices; and <span class="fragment hl-claret">he also writes down as many directions as he can think of</span>.</p>
 <p><span class="secondary">–Leonard Bernstein</span></p>
-</div>
-</div>
-</div>
-<p>Generally much more musically complicated</p>
-<div class="tc">
-<p><img src="gfx/hey-jude-single.jpeg" height="250"></p>
+</blockquote>
+<div class="fragment">
+<p><br><br></p>
+<p><span class="claret">Generally much more musically complicated</span></p>
+<div class="fragment absolute" style="top: 50%; right: 30%; ">
+<p><img data-src="gfx/hey-jude-single.jpeg" height="250"></p>
 <audio controls="" src="gfx/hey-jude-clip.m4a">
 </audio>
 </div>
@@ -253,6 +240,7 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</div>
 </section>
 <section class="slide level2">
 
@@ -338,7 +326,7 @@
 <img data-src="gfx/rubinstein-tempo-1.svg" class="quarto-figure quarto-figure-center r-stretch"><ul>
 <li><p>Notes change speed</p></li>
 <li><p>Sometimes purposeful</p></li>
-<li><p>Speed is important for <span class="tertiary">interpretation</span></p></li>
+<li><p>Speed is important for <span class="fragment hl-orange">interpretation</span></p></li>
 </ul>
 <aside class="notes">
 <ul>
@@ -360,7 +348,7 @@
       }</style></aside>
 </section>
 <section>
-<section id="what-is-this-music" class="title-slide slide level1 center">
+<section id="what-is-this-music" class="title-slide slide level1 inverse center">
 <h1>What is this “music”?</h1>
 
 </section>
@@ -501,7 +489,7 @@
       }</style></aside>
 </section></section>
 <section>
-<section id="modelling-tempo" class="title-slide slide level1 center">
+<section id="modelling-tempo" class="title-slide slide level1 inverse center">
 <h1>Modelling tempo</h1>
 
 </section>
@@ -581,14 +569,10 @@
 <p><span class="decel f1">3. Ritarando (slowing down)</span></p>
 <p><br></p>
 <p><span class="stress f1">4. Tenuto (emphasis)</span></p>
-<div class="fragment">
-<p><br><br></p>
-<ul>
-<li>Before, <span class="math inline">\(|\mathcal{S}| = 4\)</span></li>
-<li>Now, <span class="math inline">\(|\mathcal{S}| = 11\)</span></li>
-</ul>
 </div>
 </div>
+<div class="fragment box-text absolute" style="top: 20%; right: 20%; ">
+<p>Before <span class="math inline">\(|\mathcal{S}| = 4\)</span>. Now, <span class="math inline">\(|\mathcal{S}| = 11\)</span></p>
 </div>
 <aside class="notes">
 <ul>
@@ -608,8 +592,8 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="the-hmm" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">The HMM</h2>
+<section id="the-hmm" class="slide level2">
+<h2>The HMM</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="gfx/hmm-flow.svg" class="quarto-figure quarto-figure-center" width="800"></p>
@@ -623,8 +607,8 @@
 </div>
 </div>
 </section>
-<section id="hmm-inference" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">HMM Inference</h2>
+<section id="hmm-inference" class="slide level2">
+<h2>HMM Inference</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="gfx/hmm-2s-flow.svg" class="quarto-figure quarto-figure-center" height="400"></p>
@@ -686,7 +670,7 @@
       }</style></aside>
 </section></section>
 <section>
-<section id="switching-kalman-filter" class="title-slide slide level1 center">
+<section id="switching-kalman-filter" class="title-slide slide level1 inverse center">
 <h1>Switching Kalman filter</h1>
 
 </section>
@@ -789,11 +773,11 @@ Y_k &amp;= c(s_k) + Z(s_k) X_k + \epsilon_{k}\\\\
 <p><img data-src="gfx/ss-mod-flow.svg"></p>
 </div>
 </div>
-<div class="fragment">
-<p><span class="tertiary">We want to estimate</span>: <span class="math inline">\(\theta\)</span>, <span class="math inline">\(p\)</span>, <span class="math inline">\(\{X_k\}\)</span>, and <span class="math inline">\(\{S_k\}\)</span></p>
-</div>
-<div class="fragment">
+<div class="fragment box-text absolute" style="top: 20%; left: 10%; ">
+<p>We want to estimate: <span class="math inline">\(\theta\)</span>, <span class="math inline">\(p\)</span>, <span class="math inline">\(\{X_k\}\)</span>, and <span class="math inline">\(\{S_k\}\)</span></p>
+<p><br></p>
 <p>This costs <span class="math inline">\(O(|\mathcal{S}|^n)\)</span>, <span class="math inline">\(|\mathcal{S}|=11\)</span>, <span class="math inline">\(n=231\)</span></p>
+</div>
 <aside class="notes">
 <p>The problem is all the paths through the states</p>
 <style type="text/css">
@@ -807,14 +791,13 @@ Y_k &amp;= c(s_k) + Z(s_k) X_k + \epsilon_{k}\\\\
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</div>
 </section>
 <section id="we-dont-know-the-path-through-the-discrete-states" class="slide level2">
 <h2>We don’t know the path through the discrete states</h2>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="collapsibleTree html-widget html-fill-item" id="htmlwidget-e13edd35ef6c6e8650b5" style="width:2400px;height:900px;"></div>
-<script type="application/json" data-for="htmlwidget-e13edd35ef6c6e8650b5">{"x":{"data":{"name":"Constant tempo","fill":"#5E3C99","children":[{"name":"Speed up","fill":"#B2ABD2","children":[{"name":"Speed up","fill":"#B2ABD2","children":[{"name":"Speed up","fill":"#B2ABD2"},{"name":"Slow down","fill":"#FDB863"},{"name":"Constant tempo","fill":"#5E3C99"}]}]},{"name":"Slow down","fill":"#FDB863","children":[{"name":"Slow down","fill":"#FDB863","children":[{"name":"Slow down","fill":"#FDB863"},{"name":"Speed up","fill":"#B2ABD2"},{"name":"Constant tempo","fill":"#5E3C99"}]}]},{"name":"Constant tempo","fill":"#5E3C99","children":[{"name":"Constant tempo","fill":"#5E3C99","children":[{"name":"Stress","fill":"#E66101"},{"name":"Constant tempo","fill":"#5E3C99"},{"name":"Slow down","fill":"#FDB863"},{"name":"Speed up","fill":"#B2ABD2"}]},{"name":"Slow down","fill":"#FDB863","children":[{"name":"Slow down","fill":"#FDB863"}]},{"name":"Speed up","fill":"#B2ABD2","children":[{"name":"Speed up","fill":"#B2ABD2"}]},{"name":"Stress","fill":"#E66101","children":[{"name":"Constant tempo","fill":"#5E3C99"}]}]},{"name":"Stress","fill":"#E66101","children":[{"name":"Constant tempo","fill":"#5E3C99","children":[{"name":"Stress","fill":"#E66101"},{"name":"Constant tempo","fill":"#5E3C99"},{"name":"Speed up","fill":"#B2ABD2"},{"name":"Slow down","fill":"#FDB863"}]}]}]},"options":{"hierarchy":[1,2,3,4],"input":null,"attribute":"leafCount","linkLength":null,"fontSize":30,"tooltip":false,"collapsed":true,"zoomable":true,"margin":{"top":20,"bottom":20,"left":235,"right":235}}},"evals":[],"jsHooks":[]}</script>
+<div class="collapsibleTree html-widget html-fill-item" id="htmlwidget-2959c8cdfb182500739f" style="width:2400px;height:900px;"></div>
+<script type="application/json" data-for="htmlwidget-2959c8cdfb182500739f">{"x":{"data":{"name":"Constant tempo","fill":"#5E3C99","children":[{"name":"Speed up","fill":"#B2ABD2","children":[{"name":"Speed up","fill":"#B2ABD2","children":[{"name":"Speed up","fill":"#B2ABD2"},{"name":"Slow down","fill":"#FDB863"},{"name":"Constant tempo","fill":"#5E3C99"}]}]},{"name":"Slow down","fill":"#FDB863","children":[{"name":"Slow down","fill":"#FDB863","children":[{"name":"Slow down","fill":"#FDB863"},{"name":"Speed up","fill":"#B2ABD2"},{"name":"Constant tempo","fill":"#5E3C99"}]}]},{"name":"Constant tempo","fill":"#5E3C99","children":[{"name":"Constant tempo","fill":"#5E3C99","children":[{"name":"Stress","fill":"#E66101"},{"name":"Constant tempo","fill":"#5E3C99"},{"name":"Slow down","fill":"#FDB863"},{"name":"Speed up","fill":"#B2ABD2"}]},{"name":"Slow down","fill":"#FDB863","children":[{"name":"Slow down","fill":"#FDB863"}]},{"name":"Speed up","fill":"#B2ABD2","children":[{"name":"Speed up","fill":"#B2ABD2"}]},{"name":"Stress","fill":"#E66101","children":[{"name":"Constant tempo","fill":"#5E3C99"}]}]},{"name":"Stress","fill":"#E66101","children":[{"name":"Constant tempo","fill":"#5E3C99","children":[{"name":"Stress","fill":"#E66101"},{"name":"Constant tempo","fill":"#5E3C99"},{"name":"Speed up","fill":"#B2ABD2"},{"name":"Slow down","fill":"#FDB863"}]}]}]},"options":{"hierarchy":[1,2,3,4],"input":null,"attribute":"leafCount","linkLength":null,"fontSize":30,"tooltip":false,"collapsed":true,"zoomable":true,"margin":{"top":20,"bottom":20,"left":235,"right":235}}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <aside class="notes">
@@ -838,16 +821,17 @@ Y_k &amp;= c(s_k) + Z(s_k) X_k + \epsilon_{k}\\\\
 </section>
 <section id="discrete-particle-filter-dpf" class="slide level2">
 <h2>Discrete particle filter — <code>dpf()</code></h2>
+<p>Track at most <span class="math inline">\(J\)</span> paths through the <span class="math inline">\(|\mathcal{S}|^n\)</span> tree</p>
 <ol type="1">
-<li><p>Track at most <span class="math inline">\(J\)</span> paths through the <span class="math inline">\(|\mathcal{S}|^n\)</span> tree</p></li>
-<li><p>At time <span class="math inline">\(k\)</span>, given <span class="math inline">\(J\)</span> paths, propagate each one forward</p></li>
-<li><p>Sample the <span class="math inline">\(\approx J^2\)</span> possibilities to get only <span class="math inline">\(J\)</span></p></li>
-<li><p>iterate forward through time until done</p></li>
+<li><p>At time <span class="math inline">\(k\)</span>, receive <span class="math inline">\(J\)</span> paths: a state sequence and a weight</p></li>
+<li><p>Propagate each of the <span class="math inline">\(J\)</span> paths forward, creating <span class="math inline">\(\approx J^2\)</span></p></li>
+<li><p>Using the weights, sample the <span class="math inline">\(\approx J^2\)</span> possibilities to get only <span class="math inline">\(J\)</span></p></li>
+<li><p>iterate forward through time until done, return <span class="math inline">\(J\)</span> sequences and their weights</p></li>
 </ol>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="collapsibleTree html-widget html-fill-item" id="htmlwidget-5ff729544377a714b477" style="width:2400px;height:700px;"></div>
-<script type="application/json" data-for="htmlwidget-5ff729544377a714b477">{"x":{"data":{"name":"Constant tempo","fill":"#5E3C99","children":[{"name":"Speed up","fill":"#B2ABD2","children":[{"name":"Speed up","fill":"#B2ABD2","children":[{"name":"Speed up","fill":"#B2ABD2"},{"name":"Slow down","fill":"#FDB863"},{"name":"Constant tempo","fill":"#5E3C99"}]}]},{"name":"Slow down","fill":"#FDB863","children":[{"name":"Slow down","fill":"#FDB863","children":[{"name":"Slow down","fill":"#FDB863"},{"name":"Speed up","fill":"#B2ABD2"},{"name":"Constant tempo","fill":"#5E3C99"}]}]},{"name":"Constant tempo","fill":"#5E3C99","children":[{"name":"Constant tempo","fill":"#5E3C99","children":[{"name":"Stress","fill":"#E66101"},{"name":"Constant tempo","fill":"#5E3C99"},{"name":"Slow down","fill":"#FDB863"},{"name":"Speed up","fill":"#B2ABD2"}]},{"name":"Slow down","fill":"#FDB863","children":[{"name":"Slow down","fill":"#FDB863"}]},{"name":"Speed up","fill":"#B2ABD2","children":[{"name":"Speed up","fill":"#B2ABD2"}]},{"name":"Stress","fill":"#E66101","children":[{"name":"Constant tempo","fill":"#5E3C99"}]}]},{"name":"Stress","fill":"#E66101","children":[{"name":"Constant tempo","fill":"#5E3C99","children":[{"name":"Stress","fill":"#E66101"},{"name":"Constant tempo","fill":"#5E3C99"},{"name":"Speed up","fill":"#B2ABD2"},{"name":"Slow down","fill":"#FDB863"}]}]}]},"options":{"hierarchy":[1,2,3,4],"input":null,"attribute":"leafCount","linkLength":null,"fontSize":30,"tooltip":false,"collapsed":true,"zoomable":true,"margin":{"top":20,"bottom":20,"left":235,"right":235}}},"evals":[],"jsHooks":[]}</script>
+<div class="collapsibleTree html-widget html-fill-item" id="htmlwidget-197918a87152ca67f4f8" style="width:2400px;height:600px;"></div>
+<script type="application/json" data-for="htmlwidget-197918a87152ca67f4f8">{"x":{"data":{"name":"Constant tempo","fill":"#5E3C99","children":[{"name":"Speed up","fill":"#B2ABD2","children":[{"name":"Speed up","fill":"#B2ABD2","children":[{"name":"Speed up","fill":"#B2ABD2"},{"name":"Slow down","fill":"#FDB863"},{"name":"Constant tempo","fill":"#5E3C99"}]}]},{"name":"Slow down","fill":"#FDB863","children":[{"name":"Slow down","fill":"#FDB863","children":[{"name":"Slow down","fill":"#FDB863"},{"name":"Speed up","fill":"#B2ABD2"},{"name":"Constant tempo","fill":"#5E3C99"}]}]},{"name":"Constant tempo","fill":"#5E3C99","children":[{"name":"Constant tempo","fill":"#5E3C99","children":[{"name":"Stress","fill":"#E66101"},{"name":"Constant tempo","fill":"#5E3C99"},{"name":"Slow down","fill":"#FDB863"},{"name":"Speed up","fill":"#B2ABD2"}]},{"name":"Slow down","fill":"#FDB863","children":[{"name":"Slow down","fill":"#FDB863"}]},{"name":"Speed up","fill":"#B2ABD2","children":[{"name":"Speed up","fill":"#B2ABD2"}]},{"name":"Stress","fill":"#E66101","children":[{"name":"Constant tempo","fill":"#5E3C99"}]}]},{"name":"Stress","fill":"#E66101","children":[{"name":"Constant tempo","fill":"#5E3C99","children":[{"name":"Stress","fill":"#E66101"},{"name":"Constant tempo","fill":"#5E3C99"},{"name":"Speed up","fill":"#B2ABD2"},{"name":"Slow down","fill":"#FDB863"}]}]}]},"options":{"hierarchy":[1,2,3,4],"input":null,"attribute":"leafCount","linkLength":null,"fontSize":30,"tooltip":false,"collapsed":true,"zoomable":true,"margin":{"top":20,"bottom":20,"left":235,"right":235}}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <aside class="notes">
@@ -901,25 +885,31 @@ Y_k &amp;= c(s_k) + Z(s_k) X_k + \epsilon_{k}\\\\
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section>
-<section id="section-7" class="slide level2">
-<h2></h2>
-
-<img data-src="gfx/two-perfs-1.svg" class="quarto-figure quarto-figure-center r-stretch"></section></section>
+</section></section>
 <section>
-<section id="similar-performances" class="title-slide slide level1 center">
-<h1>Similar performances</h1>
+<section id="decoding-mazurkas" class="title-slide slide level1 inverse center">
+<h1>Decoding mazurkas</h1>
 
 </section>
+<section class="slide level2">
+
+
+<img data-src="gfx/two-perfs-1.svg" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="the-estimated-parameters" class="slide level2">
 <h2>The estimated parameters</h2>
+<p><br><br></p>
 <p>For each performance, we estimate <span class="math inline">\(p\)</span> and <span class="math inline">\(\theta\)</span> by penalized maximum likelihood.</p>
+<div class="fragment">
+<p><br></p>
 <p>Abuse notation and redefine <span class="math inline">\(\theta := (p, \theta)\)</span></p>
 <ul>
 <li><p>average speed in different states</p></li>
 <li><p>some variance parameters</p></li>
 <li><p>transition probabilities</p></li>
 </ul>
+</div>
+<div class="fragment">
+<p><br></p>
 <p>We have strong prior information.</p>
 <aside class="notes">
 <p>Examples of strong priors</p>
@@ -934,17 +924,19 @@ Y_k &amp;= c(s_k) + Z(s_k) X_k + \epsilon_{k}\\\\
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</div>
 </section>
 <section id="distance-matrix-on-parameters" class="slide level2">
 <h2>Distance matrix on parameters</h2>
 <div class="flex">
 <div class="w-50">
-<ul>
-<li><p>Use Mahalanobis <span class="math display">\[d(\theta,\theta') = \sqrt{(\theta-\theta')^\mathsf{T} \mathbf{V}^{-1}(\theta-\theta')}\]</span></p></li>
-<li><p><span class="math inline">\(\mathbf{V}\)</span> is prior covariance matrix</p></li>
-<li><p>Incorporates correlations correctly on probability vectors</p></li>
-<li><p>Some performances have no “close” neighbors</p></li>
-</ul>
+<p>Use Mahalanobis <span class="math display">\[d(\theta,\theta') = \sqrt{(\theta-\theta')^\mathsf{T} \mathbf{V}^{-1}(\theta-\theta')}\]</span></p>
+<p><br></p>
+<p><span class="math inline">\(\mathbf{V}\)</span> is prior covariance matrix</p>
+<p><br></p>
+<p>Incorporates correlations correctly on probability vectors</p>
+<p><br></p>
+<p>Some performances have <span class="fragment hl-claret">no close neighbors</span></p>
 </div>
 <div class="w-50">
 <div class="cell" data-layout-align="center">
@@ -959,19 +951,11 @@ Y_k &amp;= c(s_k) + Z(s_k) X_k + \epsilon_{k}\\\\
 </div>
 </div>
 </section>
-<section id="section-8" class="slide level2">
-<h2></h2>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="gfx/good-clusters.png" class="quarto-figure quarto-figure-center" width="941" height="800"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="section-9" class="slide level2">
+<section class="slide level2">
+
+
+<img data-src="gfx/good-clusters.png" class="quarto-figure quarto-figure-center r-stretch" width="1993"></section>
+<section id="section-7" class="slide level2">
 <h2></h2>
 
 <img data-src="gfx/clustered-parameters-1.svg" class="quarto-figure quarto-figure-center r-stretch"></section>
@@ -987,7 +971,7 @@ Y_k &amp;= c(s_k) + Z(s_k) X_k + \epsilon_{k}\\\\
 <h2>Cluster 2</h2>
 
 <img data-src="gfx/clust-2-1.svg" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="similar-performances-1" class="slide level2">
+<section id="similar-performances" class="slide level2">
 <h2>Similar performances</h2>
 
 <img data-src="gfx/similar-perfs-1.svg" class="quarto-figure quarto-figure-center r-stretch"></section>

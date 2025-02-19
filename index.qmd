@@ -8,14 +8,31 @@ format:
     auto-animate-easing: ease-in-out
 ---
 
-{{< include _titleslide.qmd >}}
+{{< include _setup.qmd >}}
 
 
-## {background-image="gfx/LoveLost-VPO.png" background-size="contain"}
+## {background-image="gfx/cover-art-1.svg"}
 
-## {background-image="gfx/State-cello-0299.jpg" background-size="contain"}
+::: {style="text-align:center; font-family:Gilda Display; font-size:1.8em; padding: 1em 0.5em 0em; background-color: rgba(255, 255, 255, .5); backdrop-filter: blur(5px); box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .5);"}
+[{{< meta talk-title >}}]{.primary} 
 
-## {background-image="gfx/jacobs.jpg" background-size="contain"}
+<br>
+
+[Daniel J. McDonald]{.primary}
+
+![](gfx/qrcodes-1.png){height="300px" fig-align="center"}
+:::
+
+
+
+
+
+## {background-color="#002145" background-image="gfx/LoveLost-VPO.png" background-size="contain"}
+
+## {background-color="#002145" background-image="gfx/State-cello-0299.jpg"  background-size="contain" visibility="uncounted"}
+
+## {background-color="#002145" background-image="gfx/jacobs.jpg" background-size="contain" visibility="uncounted"}
+
 
 ::: notes
 
@@ -52,14 +69,13 @@ format:
 :::
 :::
 
+
+* Harder to describe a [performance]{.fragment .hl-orange}
+
+* Classical music is mainly about [performances of the same music]{.fragment .hl-orange}
+
 ::: fragment
-
-* Harder to describe a [performance]{.tertiary}
-
-* Classical music is mainly about performances of the [same]{.tertiary} music
-
-* How do we think about which ones we like?
-
+[How do we think about which ones we like?]{.claret}
 :::
 
 
@@ -68,26 +84,28 @@ format:
 * Written between 6th century and today
 * Includes music written during the Classical period (1750&ndash;1820)
 
-::: {.callout-warning appearance="minimal"}
 
-The real difference is that when a composer writes a piece of what’s usually 
-called classical music, he puts down the exact notes that he wants, the exact 
-instruments or voices that he wants to play or sing those notes—even the exact 
-number of instruments or voices; and he also writes down as many directions as 
-he can think of. 
+> The real difference is that when a composer writes a piece of what’s usually 
+called classical music, he puts down [the exact notes that he wants]{.fragment .hl-claret},
+the exact instruments or voices that he wants to play or sing those notes—even the exact 
+number of instruments or voices; and [he also writes down as many directions as 
+he can think of]{.fragment .hl-claret}. 
+>
+> [&ndash;Leonard Bernstein]{.secondary}
 
-[&ndash;Leonard Bernstein]{.secondary}
+. . .
 
-:::
+<br><br>
 
-Generally much more musically complicated  
+[Generally much more musically complicated]{.claret}
 
+::: {.fragment .absolute top=50% right=30%}
 
-<div class=tc>
-<img src="gfx/hey-jude-single.jpeg" height=250>
+![](gfx/hey-jude-single.jpeg){height=250}
 
 <audio controls src="gfx/hey-jude-clip.m4a"></audio>
-</div>
+
+:::
 
 ::: notes
 
@@ -205,7 +223,7 @@ ggplot(tempos, aes(x = note_onset, y = Rubinstein_1961)) +
 
 * Sometimes purposeful
 
-* Speed is important for [interpretation]{.tertiary}
+* Speed is important for [interpretation]{.fragment .hl-orange}
 
 ::: notes
 
@@ -216,7 +234,7 @@ ggplot(tempos, aes(x = note_onset, y = Rubinstein_1961)) +
 
 :::
 
-# What is this "music"?
+# What is this "music"? {.inverse}
 
 ## Important musical terms
 
@@ -283,21 +301,20 @@ Loudness of the note
 ---
 
 ```{r all-performance-lines}
-#| cache: true
 #| fig-width: 7
 #| fig-height: 3.5
 tempos %>%
   select(-meas_num, -beat) %>%
   pivot_longer(-note_onset) %>%
-  ggplot() +
+  ggplot(aes(note_onset, value)) +
   annotate(
     "rect", xmin = 33, xmax = 45, ymin = -Inf, ymax = Inf,
     fill = "gray90", color = "gray90"
   ) +
-  geom_line(aes(y = value, x = note_onset, color = name)) +
+  geom_line(aes(color = as.numeric(as.factor(name)), group = name)) +
   scale_y_continuous(expand = expansion(c(0, 0.05))) +
   scale_x_continuous(expand = expansion()) +
-  scale_color_manual(values = rep(fivecolors, length.out = nrow(pvec_ml))) +
+  scale_color_distiller(palette = "Set1", direction = -1) +
   ylab("Tempo (bpm)") +
   xlab("Measure") +
   theme(legend.position = "none")
@@ -367,7 +384,7 @@ Everything he wrote includes piano
 
 :::
 
-# Modelling tempo
+# Modelling tempo {.inverse}
 
 ## Tempo regimes {auto-animate=true}
 
@@ -452,16 +469,15 @@ Everything he wrote includes piano
 
 [4. Tenuto (emphasis)]{.stress .f1}
 
-::: {.fragment}
-
-<br><br>
-
-* Before, $|\mathcal{S}| = 4$
-* Now, $|\mathcal{S}| = 11$
 
 :::
-
 :::
+
+
+::: {.fragment .box-text .absolute top="20%" right="20%"}
+
+Before $|\mathcal{S}| = 4$. Now, $|\mathcal{S}| = 11$
+
 :::
 
 
@@ -475,7 +491,7 @@ Everything he wrote includes piano
 
 
 
-## The HMM {auto-animate=true}
+## The HMM
 
 ![](gfx/hmm-flow.svg){width=800px fig-align=center}
 
@@ -485,7 +501,7 @@ Everything he wrote includes piano
 
 
 
-## HMM Inference {auto-animate=true}
+## HMM Inference
 
 ![](gfx/hmm-2s-flow.svg){height=400 fig-align=center}
 
@@ -537,7 +553,7 @@ grichter +
 * Observe noisy realization
 :::
 
-# Switching Kalman filter
+# Switching Kalman filter {.inverse}
 
 ## Kalman filter algorithm {auto-animate=true}
 
@@ -644,14 +660,15 @@ $$
 :::
 :::
 
-. . .
+::: {.fragment .box-text .absolute top="20%" left="10%"}
 
-[We want to estimate]{.tertiary}: $\theta$, $p$, $\{X_k\}$, and $\{S_k\}$
+We want to estimate: $\theta$, $p$, $\{X_k\}$, and $\{S_k\}$
 
-. . . 
+<br>
 
 This costs $O(|\mathcal{S}|^n)$, $|\mathcal{S}|=11$, $n=231$
 
+:::
 
 ::: notes
 The problem is all the paths through the states
@@ -713,17 +730,19 @@ collapsibleTree(const, fill = "fill", fontSize = 30)
 
 ## Discrete particle filter &mdash; `dpf()`
 
-1. Track at most $J$ paths through the $|\mathcal{S}|^n$ tree
+Track at most $J$ paths through the $|\mathcal{S}|^n$ tree
 
-2. At time $k$, given $J$ paths, propagate each one forward
+1. At time $k$, receive $J$ paths: a state sequence and a weight
 
-3. Sample the $\approx J^2$ possibilities to get only $J$
+2. Propagate each of the $J$ paths forward, creating $\approx J^2$
 
-4. iterate forward through time until done
+3. Using the weights, sample the $\approx J^2$ possibilities to get only $J$
+
+4. iterate forward through time until done, return $J$ sequences and their weights
 
 ```{r s-tree2}
 #| out-width: "2400px"
-#| out-height: "700px"
+#| out-height: "600px"
 collapsibleTree(const, fill = "fill", fontSize = 30, collapsed = TRUE)
 ```
 
@@ -759,7 +778,9 @@ For each performance:
 * I used 6hr walltime on Cedar with 1 perf / core and 10 restarts
 :::
 
-##
+# Decoding mazurkas {.inverse}
+
+---
 
 ```{r two-perfs}
 #| fig-width: 8
@@ -785,11 +806,15 @@ ggplot(filter(plots, performer %in% c("Richter 1976", "Hatto 1993"))) +
   facet_wrap(~performer, ncol = 1)
 ```
 
-# Similar performances
-
 ## The estimated parameters
 
+<br><br>
+
 For each performance, we estimate $p$ and $\theta$ by penalized maximum likelihood.
+
+. . .
+
+<br>
 
 Abuse notation and redefine $\theta := (p, \theta)$
 
@@ -798,6 +823,10 @@ Abuse notation and redefine $\theta := (p, \theta)$
   - some variance parameters
   
   - transition probabilities
+  
+. . .
+
+<br>
   
 We have strong prior information.
 
@@ -833,17 +862,20 @@ source("src/group_means_upper_tri.R")
 ::: flex
 ::: w-50
 
-* Use Mahalanobis
+Use Mahalanobis
 $$d(\theta,\theta') = \sqrt{(\theta-\theta')^\mathsf{T} \mathbf{V}^{-1}(\theta-\theta')}$$
 
+<br>
 
-* $\mathbf{V}$ is prior covariance matrix
+$\mathbf{V}$ is prior covariance matrix
 
+<br>
 
-* Incorporates correlations correctly on probability vectors
+Incorporates correlations correctly on probability vectors
 
+<br>
 
-* Some performances have no "close" neighbors
+Some performances have [no close neighbors]{.fragment .hl-claret}
 
 :::
 ::: w-50
@@ -858,22 +890,22 @@ ggplot(m, aes(Var1, Var2, fill = value)) +
   scale_fill_viridis_c(direction = -1) +
   theme_void() +
   coord_equal() +
-  geom_hline(yintercept = sply, color = "#ffffff", linewidth = .2) +
-  geom_vline(xintercept = splx, color = "#ffffff", linewidth = .2) +
+  geom_hline(yintercept = sply, color = "#f3f3f3", linewidth = .2) +
+  geom_vline(xintercept = splx, color = "#f3f3f3", linewidth = .2) +
   theme(legend.position = "none")
 ```
 
 :::
 :::
 
-##
+---
 
 ```{r make-cluster-plot}
 #| eval: false
 source("src/make-cluster-plot.R")
 ```
 
-```{r include-ai-gfx, out.height="800px", out.width="941px", fig.align="center"}
+```{r include-ai-gfx, fig.align="center"}
 knitr::include_graphics("gfx/good-clusters.png")
 ```
 

@@ -210,9 +210,6 @@
 <path clip-rule="nonzero" d="M 39.152344 5.480469 L 498.523438 5.480469 L 498.523438 23.246094 L 39.152344 23.246094 Z M 39.152344 5.480469 "/>
 </clipPath>
 </defs>
-<rect x="-50.4" y="-25.2" width="604.8" height="302.4" fill="rgb(100%, 100%, 100%)" fill-opacity="1"/>
-<rect x="-50.4" y="-25.2" width="604.8" height="302.4" fill="rgb(100%, 100%, 100%)" fill-opacity="1"/>
-<path fill="none" stroke-width="1.066978" stroke-linecap="round" stroke-linejoin="round" stroke="rgb(100%, 100%, 100%)" stroke-opacity="1" stroke-miterlimit="10" d="M 0 252 L 504 252 L 504 0 L 0 0 Z M 0 252 "/>
 <g clip-path="url(#clip-0)">
 <path fill-rule="nonzero" fill="rgb(100%, 100%, 100%)" fill-opacity="1" d="M 39.152344 218.847656 L 498.523438 218.847656 L 498.523438 23.246094 L 39.152344 23.246094 Z M 39.152344 218.847656 "/>
 </g>

@@ -29,6 +29,7 @@ knitr:
   opts_chunk:
     message: FALSE
     dev: "svg"
+    dev.args: { bg: "transparent" }
     fig.width: 5.33
     fig.height: 3
     fig.align: center
