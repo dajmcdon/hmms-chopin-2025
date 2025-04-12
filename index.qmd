@@ -14,11 +14,11 @@ format:
 ## {background-image="gfx/cover-art-1.svg"}
 
 ::: {style="text-align:center; font-family:Gilda Display; font-size:1.8em; padding: 1em 0.5em 0em; background-color: rgba(255, 255, 255, .5); backdrop-filter: blur(5px); box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .5);"}
-[{{< meta talk-title >}}]{.primary} 
+[{{< meta talk-title >}}]{.h2} 
 
 <br>
 
-[Daniel J. McDonald]{.primary}
+[Daniel J. McDonald]{.h3}
 
 ![](gfx/qrcodes-1.png){height="300px" fig-align="center"}
 :::
@@ -26,8 +26,6 @@ format:
 
 
 
-
-## {background-color="#002145" background-image="gfx/LoveLost-VPO.png" background-size="contain"}
 
 ## {background-color="#002145" background-image="gfx/State-cello-0299.jpg"  background-size="contain" visibility="uncounted"}
 
